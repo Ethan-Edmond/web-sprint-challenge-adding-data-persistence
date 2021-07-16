@@ -8,11 +8,19 @@ const {
 const Tasks = require('./model');
 
 router.get('/', (req, res, next) => {
-  res.json('here it is');
+  Tasks.getAll()
+    .then(tasks => {
+      res.json(tasks);
+    })
+    .catch(next);
 });
 
 router.post('/', validate, validateType, validateProject, (req, res, next) => {
-  res.json('posting......... or maybe not');
+  Tasks.add(req.task)
+    .then(newTask => {
+      res.json(newTask);
+    })
+    .catch(next);
 });
 
 module.exports = router;
