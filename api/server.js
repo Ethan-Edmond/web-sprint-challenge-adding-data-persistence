@@ -10,7 +10,7 @@ const server = express();
 server.use(express.json);
 
 server.use('/api/project', projRouter);
-// server.use('/api/resource', resourceRouter);
+server.use('/api/resource', resourceRouter);
 // server.use('/api/task', taskRouter);
 
 server.use((err, req, res, next) => {
