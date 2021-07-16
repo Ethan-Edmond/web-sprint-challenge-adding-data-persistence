@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', validate, validateType, validateUniqueName, (req, res, next) => {
-  Resources.add(req.body)
+  Resources.add(req.resource)
     .then(newResource => {
       res.json(newResource);
     })

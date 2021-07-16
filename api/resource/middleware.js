@@ -29,7 +29,8 @@ exports.validateType = (req, res, next) => {
 };
 
 exports.validateUniqueName = async (req, res, next) => {
-  const resource_name = req.body.resource_name.trim();
+  const resource_name = req.resource.resource_name.trim();
+  req.resource.resource_name = resource_name;
   const resources = await Resources.getAll();
   const names = new Set(resources.map(resource => resource.resource_name));
   if (names.has(resource_name)){
