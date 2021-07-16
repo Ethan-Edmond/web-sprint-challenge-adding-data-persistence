@@ -14,7 +14,8 @@ server.use('/api/resources', resourceRouter);
 server.use('/api/tasks', taskRouter);
 
 server.use((err, req, res, next) => {
-  res.status(500).json({
+  const status = err.status || 500;
+  res.status(status).json({
     message: err.message,
     stack: err.stack
   });
