@@ -1,12 +1,17 @@
 // build your `/api/tasks` router here
 const router = require('express').Router();
+const {
+  validate,
+  validateType,
+  validateProject
+} = require('./middleware');
 
 router.get('/', (req, res, next) => {
-  next();
+  res.json('here it is')
 });
 
-router.post('/', (req, res, next) => {
-  next();
+router.post('/', validate, validateType, validateProject, (req, res, next) => {
+  res.json('posting......... or maybe not');
 });
 
 module.exports = router;
