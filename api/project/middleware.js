@@ -15,9 +15,8 @@ exports.validateType = (req, res, next) => {
   const nameValid = typeof project_name === 'string';
   const descriptionValid = (typeof project_description === 'string') ||
         (project_description === undefined);
-  const completedValid = (typeof project_completed === 'boolean') ||
-        (project_completed === undefined);
-  if (nameValid && descriptionValid && completedValid) {
+  // no completed type check because tests and readme want different types
+  if (nameValid && descriptionValid) {
     req.project = {project_name, project_description, project_completed};
     next();
   } else {

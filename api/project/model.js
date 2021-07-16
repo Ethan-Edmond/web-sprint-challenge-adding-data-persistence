@@ -6,7 +6,7 @@ const getAll = () => {
 
 const add = async (project) => {
   const project_id = await db('projects').insert(project);
-  return await db('projects').where({project_id});
+  return await db('projects').where({project_id}).first();
 };
 
 module.exports = {
