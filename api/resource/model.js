@@ -6,5 +6,5 @@ exports.getAll = () => {
 
 exports.add = async (resource) => {
   const resource_id = await db('resources').insert(resource);
-  return await db('resources').where({resource_id});
+  return await db('resources').where({resource_id}).first();
 };
