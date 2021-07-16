@@ -2,8 +2,9 @@
 const router = require('express').Router();
 const Projects = require('./model');
 
+console.log('Projects:', Projects);
 router.get('/', (req, res, next) => {
-  next();
+  res.json({message: 'wired'});
 });
 
 router.post('/', (req, res, next) => {

@@ -7,11 +7,11 @@ const taskRouter = require('./task/router');
 
 const server = express();
 
-server.use(express.json);
+server.use(express.json());
 
-server.use('/api/project', projRouter);
-server.use('/api/resource', resourceRouter);
-server.use('/api/task', taskRouter);
+server.use('/api/projects', projRouter);
+server.use('/api/resources', resourceRouter);
+server.use('/api/tasks', taskRouter);
 
 server.use((err, req, res, next) => {
   res.status(500).json({
@@ -19,5 +19,6 @@ server.use((err, req, res, next) => {
     stack: err.stack
   });
 });
+
 
 module.exports = server;
