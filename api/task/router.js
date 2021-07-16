@@ -5,9 +5,10 @@ const {
   validateType,
   validateProject
 } = require('./middleware');
+const Tasks = require('./model');
 
 router.get('/', (req, res, next) => {
-  res.json('here it is')
+  res.json('here it is');
 });
 
 router.post('/', validate, validateType, validateProject, (req, res, next) => {

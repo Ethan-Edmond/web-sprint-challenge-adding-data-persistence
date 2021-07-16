@@ -1,4 +1,4 @@
-const {getProj} = require('./model');
+const Tasks = require('./model');
 
 exports.validate = (req, res, next) => {
   const {task_description, project_id} = req.body;
@@ -29,13 +29,14 @@ exports.validateType = (req, res, next) => {
   } else {
     next({
       status: 400,
-      message: 'Incorrect typing: descr. and notes should be strings, project_id should be a number and completed should be a boolean'
+      message: 'Incorrect typing: descr. and notes should be strings, ' +
+        'project_id should be a number and completed should be a boolean'
     });
   }
 };
 
 exports.validateProject = async (req, res, next) => {
-  const project = await getProj(req.task.project_id);
+  const project = await Tasks.getProj(req.task.project_id);
   const project_idValid = !!project;
   if (project_idValid) {
     next();
