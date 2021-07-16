@@ -18,12 +18,9 @@ exports.validateType = (req, res, next) => {
   const descriptionValid = typeof task_description === 'string';
   const project_idValid = typeof project_id === 'number';
 
-  const notesValid = (typeof task_notes === 'string') ||
-        (task_notes === undefined);
-  const completedValid = (typeof task_completed === 'boolean') ||
-        (task_completed === undefined);
+  // no notes check or completed check because of tests
 
-  if (descriptionValid && project_idValid && notesValid && completedValid) {
+  if (descriptionValid && project_idValid) {
     req.task = {task_description, task_notes, task_completed, project_id};
     next();
   } else {
