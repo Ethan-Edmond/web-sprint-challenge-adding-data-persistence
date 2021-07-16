@@ -34,8 +34,15 @@ exports.validateType = (req, res, next) => {
   }
 };
 
-exports.validateProject = (req, res, next) => {
-  res.json(
-    'cutting at validateProject'
-  );
+exports.validateProject = async (req, res, next) => {
+  const project = await getProj(req.task.project_id);
+  const project_idValid = !!project;
+  if (project_idValid) {
+    next();
+  } else {
+    next({
+      status: 404,
+      message: `Project with id ${req.task.project_id} does not exist`
+    });
+  }
 };

@@ -11,5 +11,7 @@ exports.add = async (task) => {
 };
 
 exports.getProj = (project_id) => {
-  return db('projects').where({project_id});
+  return db('projects')
+    .where({project_id})
+    .first();
 };
