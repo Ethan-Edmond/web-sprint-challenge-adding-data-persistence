@@ -3,7 +3,8 @@ exports.validate = (req, res, next) => {
   if (project_name) {
     next();
   } else {
-    res.status(400).json({
+    next({
+      status: 400,
       message: 'project_name is required'
     });
   }
@@ -20,7 +21,8 @@ exports.validateType = (req, res, next) => {
     req.project = {project_name, project_description, project_completed};
     next();
   } else {
-    res.status(400).json({
+    next({
+      status: 400,
       message: 'Incorrect typing: name and descr. should be strings and completed should be a boolean'
     });
   }
