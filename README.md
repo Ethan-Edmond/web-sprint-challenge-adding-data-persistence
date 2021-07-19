@@ -10,11 +10,11 @@ You are not allowed to collaborate during the sprint challenge.
 
 ## Project Set Up
 
-- [ ] Fork and clone the repo. Delete your old fork from Github first if you are repeating this Unit.
-- [ ] Open the assignment in Canvas and click on the "Set up git" option.
-- [ ] Follow instructions to set up Codegrade's Webhook and Deploy Key.
-- [ ] Make a commit and push it to Github.
-- [ ] Check to see that Codegrade has accepted your git submission.
+- [x] Fork and clone the repo. Delete your old fork from Github first if you are repeating this Unit.
+- [x] Open the assignment in Canvas and click on the "Set up git" option.
+- [x] Follow instructions to set up Codegrade's Webhook and Deploy Key.
+- [x] Make a commit and push it to Github.
+- [x] Check to see that Codegrade has accepted your git submission.
 
 For a step-by-step on setting up Codegrade see [this guide.](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374)
 
@@ -118,6 +118,22 @@ Build an API inside the `api` folder with endpoints for:
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between Relational Databases and SQL.
+
+SQL is a type of Relational Database. The difference is the sql syntax, which
+doesn't apply to every relational database, but every sql database has some
+version of sql syntax.
+
 2. Why do tables need a Primary Key?
+
+Each record needs to unique and valid to the database, so that the database can
+find it. Primary keys are guaranteed unique and not null.
+
 3. What is the name given to a table column that references the Primary Key on another table?
+
+A column which references the primary key of another table is a foreign key.
+
 4. What do we need in order to have a _many to many_ relationship between two tables?
+
+You need another table for the relationships between them. It should have a
+foreign key column for each of the two, making each record in this table a
+connection between two records from the two referenced tables.
